@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActivityIndicator, StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
+import { ActivityIndicator, StyleSheet, Text, View, ToastAndroid, TouchableOpacity } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import { createStackNavigator } from 'react-navigation';
 
@@ -84,6 +84,7 @@ export default class Main extends React.Component {
             await this.setState({
                 dataSource: responseJson
             });
+            ToastAndroid.show('Dados carregados com sucesso!', ToastAndroid.SHORT);
 
         } catch (error) {
             console.error(error);
@@ -126,7 +127,7 @@ export default class Main extends React.Component {
                 <FlatList
                     data={this.state.dataSource}
                     renderItem={this.renderItem}
-                    keyExtractor={(item, index) => index}
+                    keyExtractor={(item, index) => `i${index}`}
                 >
                 </FlatList>
                 <Text style={{ color: '#f3f1e5', margin: 4 }}>D.Evolution</Text>
