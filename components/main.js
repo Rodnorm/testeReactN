@@ -126,6 +126,7 @@ export default class Main extends React.Component {
                 <FlatList
                     data={this.state.dataSource}
                     renderItem={this.renderItem}
+                    keyExtractor={(item, index) => index}
                 >
                 </FlatList>
                 <Text style={{ color: '#f3f1e5', margin: 4 }}>D.Evolution</Text>
