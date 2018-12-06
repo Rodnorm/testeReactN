@@ -84,7 +84,7 @@ export default class Main extends React.Component {
             await this.setState({
                 dataSource: responseJson
             });
-            ToastAndroid.show('Dados carregados com sucesso!', ToastAndroid.SHORT);
+            ToastAndroid.show(`Dados carregados com sucesso, ${this.props.navigation.getParam('name', 'Zequinha')}!`, ToastAndroid.SHORT);
 
         } catch (error) {
             console.error(error);
